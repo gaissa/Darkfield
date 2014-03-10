@@ -15,8 +15,9 @@
 #define ROOMS 4
 
 
-namespace Ui {
-class Arena;
+namespace Ui
+{
+    class Arena;
 }
 
 class Arena : public QWidget
@@ -95,7 +96,6 @@ private:
 
     int randInt(int low, int high);
 
-
 private slots:
     void on_pushButton_1_clicked();
     void on_pushButton_2_clicked();
@@ -111,8 +111,6 @@ private slots:
     void on_pushButton_10_clicked();
 
     void on_pushButton_11_clicked();
-
 };
-
 
 #endif // Arena_H

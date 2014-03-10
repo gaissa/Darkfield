@@ -6,10 +6,8 @@
 
 /** The game arena */
 Arena::Arena(QWidget *parent) :
-
-    QWidget(parent),
-    ui(new Ui::Arena)
-
+             QWidget(parent),
+             ui(new Ui::Arena)
 {
     /** Set the ui. */
     ui->setupUi(this);
@@ -26,7 +24,7 @@ Arena::Arena(QWidget *parent) :
     /** Create the player. */
     player = new Player;
 
-    /** Crate the enemies */
+    /** Create the enemies */
     for (int e = 1; e < ENEMIES+1; e++)
     {
         enemies[e] = new Enemy();
@@ -59,7 +57,6 @@ Arena::Arena(QWidget *parent) :
 Arena::~Arena()
 {
     delete ui;
-
     delete player;
 
     for (int e = 1; e < ENEMIES+1; e++)
@@ -68,15 +65,15 @@ Arena::~Arena()
     }
     delete enemies;
 
-    qDebug() << "ARENA_deleted";
+    //qDebug() << "ARENA_deleted";
 }
 
 /** Draw the game area here. */
 void Arena::paintEvent(QPaintEvent *)
 {
-     /** Just to check if the game is on. */
-    if (gameTrue) {
-
+    /** Just to check if the game is on. */
+    if (gameTrue)
+    {
         /** The painter object to this event. */
         QPainter painter(this);
 
@@ -109,13 +106,11 @@ void Arena::paintEvent(QPaintEvent *)
                     {
                         painter.setPen(QColor(30,30,30));
                     }
-
                     if ((y > player->pY + FOV) || (y < player->pY-FOV))
                     {
                         painter.setPen(QColor(30,30,30));
                     }
                 }
-
                 else if ( (map[(x)][(y)] == '+') )
                 {
                     painter.setPen(Qt::gray);
@@ -124,13 +119,11 @@ void Arena::paintEvent(QPaintEvent *)
                     {
                         painter.setPen(Qt::black);
                     }
-
                     if ((y > player->pY + FOV) || (y < player->pY-FOV))
                     {
                         painter.setPen(Qt::black);
                     }
                 }
-
                 else if (map[(x)][(y)] == 'A')
                 {
                     painter.setPen(Qt::green);
@@ -139,13 +132,11 @@ void Arena::paintEvent(QPaintEvent *)
                     {
                         painter.setPen(Qt::black);
                     }
-
                     if ((y > player->pY + FOV) || (y < player->pY-FOV))
                     {
                         painter.setPen(Qt::black);
                     }
                 }
-
                 else if (map[(x)][(y)] == '*')
                 {
                     painter.setPen(Qt::cyan);
@@ -154,13 +145,11 @@ void Arena::paintEvent(QPaintEvent *)
                     {
                         painter.setPen(Qt::black);
                     }
-
                     if ((y > player->pY + FOV) || (y < player->pY-FOV))
                     {
                         painter.setPen(Qt::black);
                     }
                 }
-
                 else if (map[(x)][(y)] == '8')
                 {
                     painter.setPen(Qt::yellow);
@@ -169,13 +158,11 @@ void Arena::paintEvent(QPaintEvent *)
                     {
                         painter.setPen(Qt::black);
                     }
-
                     if ((y > player->pY + FOV) || (y < player->pY-FOV))
                     {
                         painter.setPen(Qt::black);
                     }
                 }
-
                 else if (map[(x)][(y)] == '.')
                 {
                     painter.setPen(QColor(60,90,60));
@@ -184,7 +171,6 @@ void Arena::paintEvent(QPaintEvent *)
                     {
                         painter.setPen(Qt::black);
                     }
-
                     if ((y > player->pY + FOV) || (y < player->pY-FOV))
                     {
                         painter.setPen(Qt::black);
@@ -207,25 +193,23 @@ void Arena::paintEvent(QPaintEvent *)
         /** Draw the common enemy on map if near enough and alive. */
         for (int e = 1; e < ENEMIES+1; e++)
         {
-            if (enemies[e]->alive == true) {
-
+            if (enemies[e]->alive == true)
+            {
                 /** set FOV color for enemy. */
                 painter.setPen(Qt::black);
 
-                for (int i = 1; i <= FOV; i++) {
-
-                    for (int j = 0; j <= FOV; j++) {
-
+                for (int i = 1; i <= FOV; i++)
+                {
+                    for (int j = 0; j <= FOV; j++)
+                    {
                         if ( (player->pX + i == enemies[e]->eX || player->pX - i == enemies[e]->eX) && (player->pY+j == enemies[e]->eY) )
                         {
                             painter.setPen(Qt::red);
                         }
-
                         if ( (player->pX + i == enemies[e]->eX || player->pX - i == enemies[e]->eX) && (player->pY-j == enemies[e]->eY) )
                         {
                             painter.setPen(Qt::red);
                         }
-
                         if ( (player->pY + i == enemies[e]->eY || player->pY - i == enemies[e]->eY) && (player->pX == enemies[e]->eX) )
                         {
                             painter.setPen(Qt::red);
@@ -387,9 +371,7 @@ void Arena::populateMap()
 void Arena::makeRoom()
 {
     int a = randInt(8,WIDTH-2);
-
     int b = randInt(2,HEIGHT-32);
-
     int c = randInt(8,HEIGHT-2);
 
     for (int x = 1; x < WIDTH; ++x)
@@ -415,7 +397,6 @@ void Arena::makeRoom()
                     ab++;
                 }
             }
-
             /** Make the right wall */
             else if (x == a && y < c-1 && y > b+1)
             {
@@ -435,7 +416,6 @@ void Arena::makeRoom()
                     ab++;
                 }
             }
-
             /** Make the top wall. */
             else if (y == b && x > (a/2)-1 && x <= a)
             {
@@ -455,7 +435,6 @@ void Arena::makeRoom()
                     ab++;
                 }
             }
-
             /** Make the bottom wall. */
             else if (y == c && x > (a/2)-1 && x <= a)
             {
@@ -540,7 +519,6 @@ void Arena::gameTurn()
         QTextStream out(&file);
         out << "NAME: " << name << " - TIME: " << turn << " DAYS" << " - LEVEL: " <<  player->level << " - GOLD: " << player->gold << " - SCORE: " << "|" << score << "\n";
     }
-
     if (player->gold > 10)
     {
         score = ( ( (player->level * 100) - (turn - player->hp) ) * (player->gold+1) );
@@ -561,14 +539,12 @@ void Arena::gameTurn()
         QTextStream out(&file);
         out << "NAME: " << name << " - TOTAL PLAYTIME: " << turn << " DAYS" << " - LEVEL: " <<  player->level << " - GOLD: " << player->gold << " - SCORE: " << "|" << score << "\n";
     }
-
     if (player->mp > 0)
     {
         player->mp--;
         QString mpString = QString::number(player->mp);
         ui->label_7->setText(mpString);
     }
-
     if (player->enemiesKilled == 2 && oldLevel == 1)
     {
         oldLevel++;
@@ -577,9 +553,7 @@ void Arena::gameTurn()
         ui->label_8->setText(ekString);
         ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
         ui->label_5->setText("You are dead!");
-
     }
-
     if (player->enemiesKilled == 4 && oldLevel == 2)
     {
         oldLevel++;
@@ -587,7 +561,6 @@ void Arena::gameTurn()
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
     }
-
     if (player->enemiesKilled == 6 && oldLevel == 3)
     {
         oldLevel++;
@@ -595,7 +568,6 @@ void Arena::gameTurn()
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
     }
-
     if (player->enemiesKilled == 8 && oldLevel == 4)
     {
         oldLevel++;
@@ -603,7 +575,6 @@ void Arena::gameTurn()
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
     }
-
     if (player->enemiesKilled == 10 && oldLevel == 5)
     {
         oldLevel++;
@@ -611,17 +582,14 @@ void Arena::gameTurn()
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
     }
-
-    if (
-            (map[player->pX][player->pY-1] == '*') ||
-            (map[player->pX+1][player->pY-1] == '*') ||
-            (map[player->pX+1][player->pY] == '*') ||
-            (map[player->pX+1][player->pY+1] == '*') ||
-            (map[player->pX][player->pY+1] == '*') ||
-            (map[player->pX-1][player->pY+1] == '*') ||
-            (map[player->pX-1][player->pY] == '*') ||
-            (map[player->pX-1][player->pY-1] == '*')
-            )
+    if ((map[player->pX][player->pY-1] == '*') ||
+        (map[player->pX+1][player->pY-1] == '*') ||
+        (map[player->pX+1][player->pY] == '*') ||
+        (map[player->pX+1][player->pY+1] == '*') ||
+        (map[player->pX][player->pY+1] == '*') ||
+        (map[player->pX-1][player->pY+1] == '*') ||
+        (map[player->pX-1][player->pY] == '*') ||
+        (map[player->pX-1][player->pY-1] == '*'))
     {
         if ( (itemTimerS > 7) )
         {
@@ -641,17 +609,14 @@ void Arena::gameTurn()
             ui->label_5->setText("You have to wait " + waitString + "days.");
         }
     }
-
-    else if (
-             (map[player->pX][player->pY-1] == '8') ||
+    else if ((map[player->pX][player->pY-1] == '8') ||
              (map[player->pX+1][player->pY-1] == '8') ||
              (map[player->pX+1][player->pY] == '8') ||
              (map[player->pX+1][player->pY+1] == '8') ||
              (map[player->pX][player->pY+1] == '8') ||
              (map[player->pX-1][player->pY+1] == '8') ||
              (map[player->pX-1][player->pY] == '8') ||
-             (map[player->pX-1][player->pY-1] == '8')
-             )
+             (map[player->pX-1][player->pY-1] == '8'))
     {
         if ( (itemTimerT > 30) )
         {
@@ -671,7 +636,6 @@ void Arena::gameTurn()
             ui->label_5->setText("You have to wait " + waitString2 + "days.");
         }
     }
-
     else if (player->alive == true && success == false)
     {
         ui->label_5->setText("Just darkness around you...");
