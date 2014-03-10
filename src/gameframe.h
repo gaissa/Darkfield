@@ -38,7 +38,7 @@ private:
 
     Arena *arena;
 
-    QStringList scoreS;
+    QStringList highscore;
 
 private slots:
      void showScore();

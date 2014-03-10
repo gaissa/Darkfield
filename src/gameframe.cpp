@@ -1,4 +1,5 @@
 #include "gameframe.h"
+#include "specialsort.h"
 #include <QtWidgets>
 
 
@@ -60,85 +61,47 @@ void GameFrame::createMenu()
 /** Show the help dialog. */
 void GameFrame::showScore()
 {
-    scoreS.clear();
-
     QFile file("highscore.txt");
+    highscore.clear();
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         return;
+    }
 
     QTextStream in(&file);
 
-    int i = 1;
-
-    int first = 0;
-    int second = 0;
-    int third = 0;
-
     while ( !in.atEnd() )
     {
-        QString str = QString::number(i);
-
         QString line = in.readLine();
-
-        QString delimiterPattern("|");
-        QStringList sList = line.split(delimiterPattern);
-
-        int n = sList[1].toInt();
-
-        if (n > first)
-        {
-            first = n;
-            scoreS.insert(0, "<p>" + sList[0] + sList[1] + "</p>");
-            i++;
-        }
-        else if (n < first && n > second)
-        {
-            second = n;
-            scoreS.insert(1, "<p>" + sList[0] + sList[1] + "</p>");
-            i++;
-        }
-        else if (n < first && n < second && n > third)
-        {
-            third = n;
-            scoreS.insert(2, "<p>" + sList[0] + sList[1] + "</p>");
-            i++;
-        }
+        highscore.append(line);
     }
 
-    //qDebug() << " SCORE DIALOG CREATED!";
+    if (highscore.length() < 5)
+    {
+         while (highscore.length() <= 5)
+         {
+            highscore.append("line");
+         }
+    }
+
+    qSort(highscore.begin(), highscore.end(), specialSort<QString>() );
+
     QMessageBox *dialog = new QMessageBox;
 
     dialog->setWindowTitle(" ");
     dialog->setContentsMargins(0,0,32,0);
 
-    if (scoreS.length() >= 3 )
-    {
-        dialog->setText("<p><strong>A Few Greatest Darkfield Adventurers</strong></p>"
-                        "<hr>"
-                        "<p><h1>1. </h1>" + scoreS[0] + "</p>"
-                        "<hr>"
-                        "<p><h1>2. </h1>" + scoreS[1] + "</p>"
-                        "<hr>"
-                        "<p><h1>3. </h1>" + scoreS[2] + "</p>"
-                        "<hr>");
-    }
-    if (scoreS.length() == 2 )
-    {
-        dialog->setText("<p><strong>A Few Greatest Darkfield Adventurers</strong></p>"
-                        "<hr>"
-                        "<p><h1>1. </h1>" + scoreS[0] + "</p>"
-                        "<hr>"
-                        "<p><h1>2. </h1>" + scoreS[1] + "</p>"
-                        "<hr>");
-    }
-    if (scoreS.length() == 1 )
-    {
-        dialog->setText("<p><strong>A Few Greatest Darkfield Adventurers</strong></p>"
-                        "<hr>"
-                        "<p><h1>1. </h1>" + scoreS[0] + "</p>"
-                        "<hr>");
-    }
+    dialog->setText("<p><strong>A Few Greatest Darkfield Adventurers</strong></p>"
+                    "<hr>"
+                    "<p><h1>1. </h1>" + highscore[0].replace('|', ' ') + "</p>"
+                    "<hr>"
+                    "<p><h1>2. </h1>" + highscore[1].replace('|', ' ') + "</p>"
+                    "<hr>"
+                    "<p><h1>3. </h1>" + highscore[2].replace('|', ' ') + "</p>"
+                    "<hr>"
+                   );
+
     dialog->exec();
 }
 
