@@ -12,6 +12,5 @@ Install
   
 Run
 ==
-  1. go to ./release/ -folder
+  1. go to the ./release/ -folder
   2. run the game
-
