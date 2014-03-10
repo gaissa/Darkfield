@@ -11,8 +11,9 @@ body {
 /* General & 'Reset' Stuff */
 
 .container {
-  width: 90%;  
+  width: 80%;  
   margin: 0 auto;
+
 }
 
 section {
@@ -21,7 +22,7 @@ section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 20px;
+  margin: 0 0 20px 56px;
 }
 
 li {
@@ -59,6 +60,7 @@ header h1 {
 header h1:before {
   content: "./ ";
   font-size: 24px;
+  margin-left: 56px;
 }
 
 header h2 {
@@ -71,6 +73,10 @@ header h2 {
   display: inline-block;
   text-align: center;
   margin: 0;
+}
+
+#downloads  {  
+  margin-left: 56px;
 }
 
 /* Main Content
