@@ -552,7 +552,7 @@ void Arena::gameTurn()
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
         ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
-        ui->label_5->setText("You are dead!");
+        ui->label_5->setText("You level up!");
     }
     if (player->enemiesKilled == 4 && oldLevel == 2)
     {
@@ -560,6 +560,8 @@ void Arena::gameTurn()
         player->level++;
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
+        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
+        ui->label_5->setText("You level up!");
     }
     if (player->enemiesKilled == 6 && oldLevel == 3)
     {
@@ -567,6 +569,8 @@ void Arena::gameTurn()
         player->level++;
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
+        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
+        ui->label_5->setText("You level up!");
     }
     if (player->enemiesKilled == 8 && oldLevel == 4)
     {
@@ -574,6 +578,8 @@ void Arena::gameTurn()
         player->level++;
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
+        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
+        ui->label_5->setText("You level up!");
     }
     if (player->enemiesKilled == 10 && oldLevel == 5)
     {
@@ -581,6 +587,8 @@ void Arena::gameTurn()
         player->level++;
         QString ekString = QString::number(player->level);
         ui->label_8->setText(ekString);
+        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
+        ui->label_5->setText("You level up!");
     }
     if ((map[player->pX][player->pY-1] == '*') ||
         (map[player->pX+1][player->pY-1] == '*') ||
