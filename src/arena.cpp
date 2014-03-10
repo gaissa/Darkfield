@@ -63,8 +63,8 @@ Arena::~Arena()
     {
         delete enemies[e];
     }
-    delete enemies;
 
+    //delete enemies;
     //qDebug() << "ARENA_deleted";
 }
 

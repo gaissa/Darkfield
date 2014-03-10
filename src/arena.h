@@ -11,7 +11,7 @@
 #define WIDTH 71
 #define HEIGHT 38
 #define FOV 4
-#define ENEMIES 30
+#define ENEMIES 50
 #define ROOMS 4
 
 
@@ -31,47 +31,24 @@ public:
     bool gameTrue;
 
     int turn;
-
     int score;
-
     int oldLevel;
-
     int itemTimerS;
     int itemTimerT;
 
     Enemy *enemies[];
     Player *player;
 
-    Enemy *enem;
-    Enemy *enem2;
-    Enemy *enem3;
-    Enemy *enem4;
-    Enemy *enem5;
-    Enemy *enem6;
-    Enemy *enem7;
-    Enemy *enem8;
-    Enemy *enem9;
-    Enemy *enem10;
-    Enemy *enem11;
-    Enemy *enem12;
-    Enemy *enem13;
-    Enemy *enem14;
-    Enemy *enem15;
-    Enemy *enem16;
-    Enemy *enem17;
-    Enemy *enem18;
-    Enemy *enem19;
-    Enemy *enem20;
-    Enemy *enem21;
-    Enemy *enem22;
-    Enemy *enem23;
-    Enemy *enem24;
-    Enemy *enem25;
-    Enemy *enem26;
-    Enemy *enem27;
-    Enemy *enem28;
-    Enemy *enem29;
-    Enemy *enem30;
+    Enemy *enem01, *enem02, *enem03, *enem04, *enem05,
+          *enem06, *enem07, *enem08, *enem09, *enem10,
+          *enem11, *enem12, *enem13, *enem14, *enem15,
+          *enem16, *enem17, *enem18, *enem19, *enem20,
+          *enem21, *enem22, *enem23, *enem24, *enem25,
+          *enem26, *enem27, *enem28, *enem29, *enem30,
+          *enem31, *enem32, *enem33, *enem34, *enem35,
+          *enem36, *enem37, *enem38, *enem39, *enem40,
+          *enem41, *enem42, *enem43, *enem44, *enem45,
+          *enem46, *enem47, *enem48, *enem49, *enem50;          
 
     void gameTurn();
 
