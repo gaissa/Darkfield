@@ -1,13 +1,17 @@
 Darkfield
 =========
+A Simple roguelike prototype wit Qt/C++.
+
 
 Install
-  -> ./qmake -project
-  -> ./qmake
-  -> add QT += core gui widgets to .pro -file
-  -> make
+==
+  1. ./qmake -project
+  2. ./qmake
+  3. add QT += core gui widgets to .pro -file
+  4. ./make
   
 Run
-  -> go to ./release/ -folder
-  -> run the game
+==
+  1. go to ./release/ -folder
+  2. run the game
 
