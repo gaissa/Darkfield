@@ -1,6 +1,6 @@
 Darkfield
 =========
-A Simple roguelike prototype with Qt/C++.
+A simple roguelike prototype with Qt/C++.
 
 
 Install
