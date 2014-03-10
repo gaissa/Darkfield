@@ -49,7 +49,8 @@ public:
           *enem36, *enem37, *enem38, *enem39, *enem40,
           *enem41, *enem42, *enem43, *enem44, *enem45,
           *enem46, *enem47, *enem48, *enem49, *enem50;          
-
+    
+    void levelUp();
     void gameTurn();
 
     void populateMap();

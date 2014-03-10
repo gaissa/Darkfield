@@ -255,7 +255,7 @@ void Arena::fightEnemies()
                 }
                 else
                 {
-                    score = ( ( (player->level * 100) - (turn - player->hp) ) * player->gold+1);
+                    score = ( ( (player->level * 100) - (turn - player->hp) ) * player->gold + 10);
 
                     QFile file("highscore.txt");
 
@@ -473,6 +473,16 @@ void Arena::makeWalls()
     }
 }
 
+void Arena::levelUp()
+{
+    oldLevel++;
+    player->level++;
+    QString ekString = QString::number(player->level);
+    ui->label_8->setText(ekString);
+    ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
+    ui->label_5->setText("You level up!");
+}
+
 /** Do this stuff every turn. */
 void Arena::gameTurn()
 {    
@@ -489,6 +499,7 @@ void Arena::gameTurn()
     /** Increment the turn. */
     turn++;
 
+    /** Increment timers. */
     itemTimerS++;
     itemTimerT++;
 
@@ -547,48 +558,23 @@ void Arena::gameTurn()
     }
     if (player->enemiesKilled == 2 && oldLevel == 1)
     {
-        oldLevel++;
-        player->level++;
-        QString ekString = QString::number(player->level);
-        ui->label_8->setText(ekString);
-        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
-        ui->label_5->setText("You level up!");
+        levelUp();
     }
     if (player->enemiesKilled == 4 && oldLevel == 2)
     {
-        oldLevel++;
-        player->level++;
-        QString ekString = QString::number(player->level);
-        ui->label_8->setText(ekString);
-        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
-        ui->label_5->setText("You level up!");
+        levelUp();
     }
     if (player->enemiesKilled == 6 && oldLevel == 3)
     {
-        oldLevel++;
-        player->level++;
-        QString ekString = QString::number(player->level);
-        ui->label_8->setText(ekString);
-        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
-        ui->label_5->setText("You level up!");
+        levelUp();
     }
     if (player->enemiesKilled == 8 && oldLevel == 4)
     {
-        oldLevel++;
-        player->level++;
-        QString ekString = QString::number(player->level);
-        ui->label_8->setText(ekString);
-        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
-        ui->label_5->setText("You level up!");
+        levelUp();
     }
     if (player->enemiesKilled == 10 && oldLevel == 5)
     {
-        oldLevel++;
-        player->level++;
-        QString ekString = QString::number(player->level);
-        ui->label_8->setText(ekString);
-        ui->label_5->setStyleSheet("QLabel { background-color : lime; color : black; border: 2px solid #222; }");
-        ui->label_5->setText("You level up!");
+        levelUp();
     }
     if ((map[player->pX][player->pY-1] == '*') ||
         (map[player->pX+1][player->pY-1] == '*') ||
