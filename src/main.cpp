@@ -10,9 +10,7 @@ int main(int argc, char *argv[])
     GameFrame gameframe;
 
     gameframe.setWindowFlags(gameframe.windowFlags() | Qt::WindowMinimizeButtonHint);
-
     gameframe.setWindowTitle("Darkfield");
-
     gameframe.setMaximumSize(822,643);
     gameframe.show();
 

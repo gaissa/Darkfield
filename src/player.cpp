@@ -33,7 +33,7 @@ Player::Player()
 /** The destructor. */
 Player::~Player()
 {
-    qDebug() << "PLAYER_deleted";
+    //qDebug() << "PLAYER_deleted";
 }
 
 /** Random number between low and high */

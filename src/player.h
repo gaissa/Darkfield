@@ -29,5 +29,4 @@ private:
      int randInt(int low, int high);
 };
 
-
 #endif // PLAYER_H
