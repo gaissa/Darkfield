@@ -3,6 +3,7 @@
 #include "arena.h"
 #include <QtWidgets>
 
+
 /** The constructor. */
 Enemy::Enemy()
 {
@@ -19,7 +20,7 @@ Enemy::Enemy()
 /** The destructor. */
 Enemy::~Enemy()
 {
-    qDebug() << "ENEMY_deleted";
+    //qDebug() << "ENEMY_deleted";
 }
 
 /** Random number between low and high */
@@ -32,7 +33,6 @@ int Enemy::randInt(int low, int high)
 void Enemy::erandompos()
 {
     int e = randInt(2,WIDTH-2);
-
     int e2 = randInt(2,HEIGHT-2);
 
     eX = e;

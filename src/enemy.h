@@ -26,5 +26,4 @@ private:
      int randInt(int low, int high);
 };
 
-
 #endif // ENEMY_H
