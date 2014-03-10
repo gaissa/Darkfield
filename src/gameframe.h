@@ -47,5 +47,4 @@ private slots:
      void setMap();
 };
 
-
 #endif

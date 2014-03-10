@@ -28,7 +28,7 @@ GameFrame::GameFrame()
 /** The destructor. */
 GameFrame::~GameFrame()
 {
-    qDebug() << "GAMEFRAME_deleted";
+    //qDebug() << "GAMEFRAME_deleted";
 }
 
 /** Create the menu here. */
@@ -77,7 +77,6 @@ void GameFrame::showScore()
 
     while ( !in.atEnd() )
     {
-
         QString str = QString::number(i);
 
         QString line = in.readLine();
@@ -107,57 +106,49 @@ void GameFrame::showScore()
         }
     }
 
-    qDebug() << " SCORE DIALOG CREATED!";
+    //qDebug() << " SCORE DIALOG CREATED!";
     QMessageBox *dialog = new QMessageBox;
 
     dialog->setWindowTitle(" ");
-
     dialog->setContentsMargins(0,0,32,0);
 
     if (scoreS.length() >= 3 )
     {
-
         dialog->setText("<p><strong>A Few Greatest Darkfield Adventurers</strong></p>"
                         "<hr>"
                         "<p><h1>1. </h1>" + scoreS[0] + "</p>"
-                "<hr>"
-                "<p><h1>2. </h1>" + scoreS[1] + "</p>"
-                "<hr>"
-                "<p><h1>3. </h1>" + scoreS[2] + "</p>"
-                "<hr>");
+                        "<hr>"
+                        "<p><h1>2. </h1>" + scoreS[1] + "</p>"
+                        "<hr>"
+                        "<p><h1>3. </h1>" + scoreS[2] + "</p>"
+                        "<hr>");
     }
-
     if (scoreS.length() == 2 )
     {
-
         dialog->setText("<p><strong>A Few Greatest Darkfield Adventurers</strong></p>"
                         "<hr>"
                         "<p><h1>1. </h1>" + scoreS[0] + "</p>"
-                "<hr>"
-                "<p><h1>2. </h1>" + scoreS[1] + "</p>"
-                "<hr>");
+                        "<hr>"
+                        "<p><h1>2. </h1>" + scoreS[1] + "</p>"
+                        "<hr>");
     }
-
     if (scoreS.length() == 1 )
     {
-
         dialog->setText("<p><strong>A Few Greatest Darkfield Adventurers</strong></p>"
                         "<hr>"
                         "<p><h1>1. </h1>" + scoreS[0] + "</p>"
-                "<hr>");
+                        "<hr>");
     }
-
     dialog->exec();
 }
 
 /** Generate a new game/map. */
 void GameFrame::setMap()
 {
-    qDebug() << " MAP CLICK RECEIVED!";
+    //qDebug() << " MAP CLICK RECEIVED!";
 
     arena->gameTrue = true;
     arena->player->alive = true;
-
     arena->player->randompos();
 
     for (int i = 1; i < ENEMIES+1; i++)
@@ -189,14 +180,13 @@ void GameFrame::setMap()
     arena->player->enemiesKilled = 0;
 
     arena->gameTurn();
-
     arena->repaint();
 }
 
 /** Show the help dialog. */
 void GameFrame::showAbout()
 {
-    qDebug() << " ABOUT DIALOG CREATED!";
+    //qDebug() << " ABOUT DIALOG CREATED!";
     QMessageBox *dialog = new QMessageBox;
 
     dialog->setWindowTitle(" ");
@@ -223,7 +213,7 @@ void GameFrame::showAbout()
 
 void GameFrame::showManual()
 {
-    qDebug() << " HELP DIALOG CREATED!";
+    //qDebug() << " HELP DIALOG CREATED!";
     QMessageBox *dialog = new QMessageBox;
 
     dialog->setWindowTitle(" ");
