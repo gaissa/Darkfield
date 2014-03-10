@@ -7,13 +7,13 @@
 /** The constructor. */
 Enemy::Enemy()
 {
-    /** Set random position for the Enemy. */
     erandompos();
     setHitPoints();
 
     /** Set the enemy char. */
     enemyChar = 'H';
 
+    // Set alive.
     alive = true;
 }
 
@@ -29,7 +29,7 @@ int Enemy::randInt(int low, int high)
     return qrand() % ((high + 1) - low) + low;
 }
 
-/** Sets a random position to the player */
+/** Sets a random position for the enemy */
 void Enemy::erandompos()
 {
     int e = randInt(2,WIDTH-2);
@@ -39,7 +39,7 @@ void Enemy::erandompos()
     eY = e2;
 }
 
-/** Sets a random position to the player */
+/** Sets a the hitpoints for the enemy. */
 void Enemy::setHitPoints()
 {
     ehp = randInt(1,10);

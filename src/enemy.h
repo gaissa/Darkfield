@@ -13,11 +13,9 @@ public:
     char enemyChar;
 
     int ehp;
-
     int eX, eY;
 
     void erandompos();
-
     void setHitPoints();
 
     bool alive;
