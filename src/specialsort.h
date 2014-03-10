@@ -1,6 +1,7 @@
 #ifndef SPECIALSORT_H
 #define SPECIALSORT_H
 
+// A template for sorting in reverse order by INT after the delimeter.
 template <typename T>
 class specialSort
 {
