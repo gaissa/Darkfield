@@ -194,7 +194,7 @@ void GameFrame::showManual()
                     "<hr>"
                     "<p>The screen on the bottom right tells you what is going on.</p>"
                     "<hr>"
-                    "<p>On turn is equal to one day.</p>"
+                    "<p>One turn is equal to one day.</p>"
                     "<p>Every move or an action takes away one move point (MP).</p>"
                     "<p>Move points can be regained by resting.</p>"
                     "<hr>");
