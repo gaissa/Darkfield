@@ -2,7 +2,6 @@ Darkfield
 =========
 A simple roguelike prototype with Qt/C++.
 
-
 Install
 --
   1. run `./qmake -project`
